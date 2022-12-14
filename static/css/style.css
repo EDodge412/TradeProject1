@@ -1,0 +1,14 @@
+body {
+    padding-top: 3%;
+    padding-bottom: 2%;
+}
+
+a:hover{
+    color: blue;
+}
+
+.title{
+    color: darkslategray;
+}
+
+

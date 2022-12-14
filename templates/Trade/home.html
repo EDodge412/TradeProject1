@@ -1,0 +1,44 @@
+{% extends 'Trade/base.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="container my-5 bg-light text-center shadow border border-1 text-dark">
+    <div class="row justify-content-center p-4 m-3 display-2">
+        Trade
+    </div>
+
+    {% if user.is_authenticated %}
+
+    <div class="row justify-content-center p-4 m-3">
+        <h1 class="justify-content-center">Search For Listings</h1>
+    </div>
+    <div class="row p-2 m-4 justify-content-center">
+        <div class="col-6 ">
+                <div class="form-group">
+                  <form action="{% url 'search_listing' %}" method="get">
+                    {% csrf_token %}
+                    <div class="input-group mb-3 text-center">
+                        <input type="text" class="form-control" placeholder="Search listings" aria-label="" aria-describedby="" name="search_term">
+                        <button class="btn btn-primary" type="submit"> <i class="fa-sharp fa-solid fa-magnifying-glass"></i> Search</button>
+                    </div>
+                </form>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+        {% else %}
+        <div class="row justify-content-center p-4 m-3">
+        <h1 class="mb-4">Log in or Register to view listings</h1>
+        <span>
+            <a href="{% url 'login' %}"> <button class="btn btn-success" type="submit"> Login</button></a>
+             <a href="{% url 'register' %}"> <button class="btn btn-primary" type="submit"> Register</button></a>
+        </span>
+        </div>
+ {% endif  %}
+
+
+
+{% endblock %}

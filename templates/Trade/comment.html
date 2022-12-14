@@ -1,0 +1,31 @@
+{% extends 'Trade/base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<div class="container my-5 bg-light shadow border border-1 text-dark">
+    <div class="display-1 text-center">
+        Comments:
+    </div>
+<button id='comment_hide' type="submit" class="btn btn-danger">Hide Comments</button>
+ <button id='comment_show' type="submit" class="btn btn-success">Show Comments</button>
+    {% for messages in messages %}
+        <div class="row p-3 m-2 justify-content-center" id="comments">
+            <h3>Username: {{ messages.user }}</h3>
+            <h3>Message: {{ messages.message }}</h3>
+            <h3>Contact: {{ messages.contact }}</h3>
+        </div>
+
+        {% empty %}
+        <h1 class="text-center">You currently don't have any messages</h1>
+
+    {% endfor %}
+</div>
+
+
+
+<script src={%static 'js/comments.js' %}></script>
+
+
+{% endblock %}

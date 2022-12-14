@@ -1,0 +1,28 @@
+{% extends 'Trade/base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+
+
+
+{% block body %}
+
+
+
+<div class="container justify-content-center  border shadow rounded my-5">
+    <div class="row justify-content-center p-4 m-3 display-4 ">
+            Purchase Item:
+    </div>
+    <div class="row p-4 m-3 d-flex justify-content-center">
+        <div class="col-6">
+    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+<button type="submit" class="btn btn-success mt-4"> Purchase</button>
+ </form>
+</div>
+
+    </div>
+</div>
+
+
+{% endblock %}
